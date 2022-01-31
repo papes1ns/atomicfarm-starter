@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2019_06_21_114614) do
 
-  create_table "orders", force: :cascade do |t|
+  create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.decimal "total"
+    t.decimal "total", precision: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "placements", force: :cascade do |t|
+  create_table "placements", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2019_06_21_114614) do
     t.index ["product_id"], name: "index_placements_on_product_id"
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
-    t.decimal "price"
+    t.decimal "price", precision: 10
     t.boolean "published"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_06_21_114614) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false

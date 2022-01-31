@@ -4,32 +4,51 @@ Web application for manual measurements at UpwardFarms.
 
 ## Setup
 
-1. run install dependencies script
-1. run db initializer
-1. run docker compose up --build
+Here's the steps to get the development environment up and running.
 
-## commands
+1. Highly recommend using [vscode](https://code.visualstudio.com/) and installing the recommended extensions for the best development experience.
+1. Install [direnv](https://direnv.net/) to automatically source the `.envrc` file when you `cd` to this project. This is crucial for the docker compose file to retrieve the environment variables.
+1. Run `direnv allow` after install direnv and each time you make a change to `.envrc`
+1. Install [Docker Desktop](https://docs.docker.com/desktop/).
+1. Install [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).
+1. Run `yarn install` in frontend dir to initialize typescript compiler and formatter.
+
+## Starting the project
+
+1. Run `docker compose up --build`
+
+## Helper commands
+
+- `testapi` - runs the API integration and unit tests
+- `dbsetup` - seeds the rails db for development
+- `dexec` - short-hand command to get a shell in a running docker container
 
 ## Technologies
 
-- Docker compose
-- Postgresql
-- Nginx proxy
-- Ruby on Rails 6 (API only)
-- Sidekiq for background API job processing
-- React
+- Docker compose - development service orchestration
+- Mysql - relational database
+- Nginx proxy - reverse proxy to link services together
+- Ruby on Rails 6 (API only) - backend MVC framework
+- Sidekiq - background job processing
+- React - frontend framework
+- Vite - fast, simple frontend tooling
+- Tailwindcss - css framework
 
 ## Architecture
 
 The application can be built using `docker-compose up --build`.
 
-There are several interlinking services orchestrated in individual containers: `db` (the postgresql instance), `backend` (the Rails api), `frontend` (the React application) and finally the `nginx` proxy container which pulls everything together and which is the only container which exposes any ports to the host machine.
+There are several interlinking services orchestrated in individual containers: `db` (the mysql instance), `backend` (the Rails api), `frontend` (the React application) and finally the `nginx` proxy container which pulls everything together.
 
 The nginx conf can be found at `/config/nginx/proxy.conf`.
 
 The Rails application is proxied from port `3000` to `http://localhost:8080/api` and the React application is proxied from port `4000` to the root at `http://localhost:8080/`.
 
-## forked from
+The worker service is used for syncing data from the Rails db to InfluxDB.
+
+Redis is used as an array the worker service retrieve jobs from. Can also be used as a cache to reduce db queries and compute times.
+
+## Forked from
 
 - https://github.com/wobsoriano/vite-react-tailwind-starter
 - https://github.com/adaam2/docker-rails-react-starter

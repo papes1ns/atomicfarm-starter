@@ -9,16 +9,27 @@ pids
 *.pid.lock
 
 # Dependency directories
+*.local
 *node_modules
 *.bundle
+
+# JS build directories
+*dist
+*dist-ssr
+*build
 
 # DS_Store
 *.DS_Store
 
 # Temp database
-/backend/db/*.sqlite3
+/backend/db/*.sqlite3*
 /backend/db/*.sqlite3-journal
 
+# Ignore all logfiles and tempfiles.
+**/log/*
+**/tmp/*
+!/log/.keep
+!/tmp/.keep
 
 # File uploaded in dev
 *storage

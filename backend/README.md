@@ -65,3 +65,8 @@ curl -H "Authorization: $TKN" localhost:3000/api/v1/orders/7
 
 - Ruby 2.5+
 - Sqlite
+
+## Quirks
+
+Error install mysql2 gem on macOS fix
+https://stackoverflow.com/questions/30834421/error-when-trying-to-install-app-with-mysql2-gem

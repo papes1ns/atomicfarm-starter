@@ -3,7 +3,7 @@ FROM ruby:3.1.0-slim
 WORKDIR /app
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends build-essential curl libpq-dev libsqlite3-dev \
+  && apt-get install -y --no-install-recommends build-essential curl libmariadb-dev mariadb-client libsqlite3-dev \
   && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
   && apt-get clean
 
