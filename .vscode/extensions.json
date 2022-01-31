@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "eamodio.gitlens",
+    "rubymaniac.vscode-direnv",
+    "timonwong.shellcheck"
+  ]
+}

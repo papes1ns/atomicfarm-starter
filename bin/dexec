@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -eu  # do not proceed on error
+
+if [ $# -lt 1 ] || [ "$1" = "--help" ] || [ "$1" = "-h" ];  then
+cat <<EOF
+Quick command to get a shell inside a running docker container.
+
+Usage: dexec [container_name]
+
+container_name - partial name of container you wish to enter.
+
+Examples:
+$ dexec backend
+$ dexec frontend
+EOF
+exit
+fi
+
+container_line="$(docker ps | grep "$1" | head -n1)"
+
+if [ -z "$container_line" ]; then
+  echo "could not find any running containers for $1"
+  exit 1
+fi
+
+container_id="$(echo "$container_line" | awk '{print $1;}')"
+
+docker_command="docker exec -it $container_id /bin/sh"
+
+echo "found a container matching \"$1\":"
+echo "  $container_line"
+echo "executing: \"$docker_command\""
+
+$docker_command
+
+
+
