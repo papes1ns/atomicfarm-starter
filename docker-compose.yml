@@ -2,6 +2,7 @@ version: "3.7"
 services:
   db:
     image: postgres:13-alpine
+    restart: always
     volumes:
       - pg_data:/var/lib/postgresql/data
     environment:
@@ -31,6 +32,7 @@ services:
     build: backend
     command: bundle exec sidekiq
     environment:
+      PG_CONNECTION: ${PG_CONNECTION}
       REDIS_URL: redis://redis:6379/0
       SIDEKIQ_REDIS_URL: redis://redis:6379/1
     volumes:
@@ -48,6 +50,7 @@ services:
     volumes:
       - ./backend:/app
     environment:
+      PG_CONNECTION: ${PG_CONNECTION}
       REDIS_URL: redis://redis:6379/0
       SIDEKIQ_REDIS_URL: redis://redis:6379/1
     ports:

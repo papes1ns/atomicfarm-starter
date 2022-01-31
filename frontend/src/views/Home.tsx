@@ -3,13 +3,12 @@ import {Header} from "../components/Header";
 
 export const Home: React.FC = () => {
   useEffect(() => {
-    fetchOrders();
+    fetchProducts();
   }, []);
 
   return (
     <React.Fragment>
       <Header title="Home" />
-      <h1>WTF</h1>
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           {/* Replace with your content */}
@@ -23,8 +22,8 @@ export const Home: React.FC = () => {
   );
 };
 
-async function fetchOrders() {
-  const resp = await fetch("/api/v1/orders");
-  const data = await resp.json();
-  console.log(data);
+async function fetchProducts() {
+  const resp = await fetch("/api/v1/products");
+  const json = await resp.json();
+  console.log(json.data);
 }

@@ -33,5 +33,5 @@ The Rails application is proxied from port `3000` to `http://localhost:8080/api`
 
 - https://github.com/wobsoriano/vite-react-tailwind-starter
 - https://github.com/adaam2/docker-rails-react-starter
-
+- https://github.com/madeindjs/api_on_rails
 - https://github.com/ohbarye/rails-react-typescript-docker-example

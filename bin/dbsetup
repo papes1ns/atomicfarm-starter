@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -eu  # do not proceed on error
+
+docker compose run backend /bin/bash -c "
+rails db:drop
+rails db:create
+rails db:migrate
+rails db:seed
+"
