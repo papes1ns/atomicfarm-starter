@@ -7,20 +7,21 @@ Web application for manual measurements at UpwardFarms.
 Here's the steps to get the development environment up and running.
 
 1. Highly recommend using [vscode](https://code.visualstudio.com/) and installing the recommended extensions for the best development experience.
-1. Install [direnv](https://direnv.net/) to automatically source the `.envrc` file when you `cd` to this project. This is crucial for the docker compose file to retrieve the environment variables.
-1. Run `direnv allow` after install direnv and each time you make a change to `.envrc`
+1. Install [direnv](https://direnv.net/) to automatically source the `.envrc` file when you `cd` to this project. This is crucial for the docker compose file to read the environment variables.
+1. Run `direnv allow` after installing direnv and each time you make a change to `.envrc`
 1. Install [Docker Desktop](https://docs.docker.com/desktop/).
 1. Install [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).
 1. Run `yarn install` in frontend dir to initialize typescript compiler and formatter.
 
 ## Starting the project
 
-1. Run `docker compose up --build`
+1. Run `docker compose up --build`.
+1. Run `dbsetup` to run migrations and seed the database.
 
 ## Helper commands
 
 - `testapi` - runs the API integration and unit tests
-- `dbsetup` - seeds the rails db for development
+- `dbsetup` - drops db, creates db, runs migrations and seeds the rails db for development
 - `dexec` - short-hand command to get a shell in a running docker container
 
 ## Technologies
