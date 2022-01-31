@@ -19,13 +19,13 @@ services:
   nginx:
     image: nginx:1.21.6-alpine
     volumes:
-      - ./config/nginx/proxy.conf:/etc/nginx/conf.d/proxy.conf
+      - ./config/nginx/proxy.conf.template:/etc/nginx/templates/proxy.conf.template
     depends_on:
       - backend
       - frontend
     environment:
-      VIRTUAL_HOST: atomicfarm
-      VIRTUAL_PORT: 8080
+      NGINX_HOST: ${PROJECT_NAME}
+      NGINX_PORT: 8080
     ports:
       - 8080:8080
   worker:
