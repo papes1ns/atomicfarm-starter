@@ -4,7 +4,7 @@ Web application for manual measurements at UpwardFarms.
 
 ## Setup
 
-Here's the steps to get the development environment up and running.
+Here're the steps to get the development environment up and running.
 
 1. Highly recommend using [vscode](https://code.visualstudio.com/) and installing the recommended extensions for the best development experience.
 1. Install [direnv](https://direnv.net/) to automatically source the `.envrc` file when you `cd` to this project. This is crucial for the docker compose file to read the environment variables.
@@ -15,8 +15,8 @@ Here's the steps to get the development environment up and running.
 
 ## Starting the project
 
-1. Run `docker compose up --build`.
-1. Run `dbsetup` to run migrations and seed the database.
+1. Run `docker compose up --build`
+1. Run `dbsetup` to run migrations and seed the database
 
 ## Helper commands
 

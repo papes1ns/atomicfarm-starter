@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 
-export const Nav = () => {
+export const Nav: React.FC = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();

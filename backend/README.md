@@ -1,4 +1,4 @@
-# Market Place API
+# Marketplace API example
 
 This repository contains application example build into the [API on Rails 6](https://github.com/madeindjs/api_on_rails) book.
 
@@ -7,21 +7,63 @@ This final application will scratch the surface of being a market place where us
 The purpose of this application is not only to teach you how to build an API with Rails but rather to teach you how to build an _evolutive_ and _maintainable_ API with Rails. That is, improve your current knowledge with Rails. On this journey, you will learn to:
 
 - Building JSON responses
-- Test your end-points with unit and functional tests
+- **Test your end-points with unit and functional tests**
 - Set up authentication with JSON Web Tokens (JWT)
-- Optimize and cache the API
 
-## Setup
+## Local environment Setup
+
+### rbenv
+
+We use [rbenv](https://github.com/rbenv/rbenv) to manage the Ruby version used on this project. In addition to installing it through Homebrew, you will most likely need to initialize it for your desired shell, see the [installation instructions](https://github.com/rbenv/rbenv#installation) for more information.
 
 ```bash
-git clone https://github.com/madeindjs/market_place_api_6
-cd market_place_api_6
-bundle install
-rake db:create
-rake db:migrate
+$ brew install rbenv
+$ rbenv install 3.1.0     // <-- Or whatever Ruby version is specified in the '.ruby-version' file
+$ ruby --version          // <-- This should match the version in the '.ruby-version' file
 ```
 
-## Usage
+Ruby version should also matched the version source with direnv, e.g. `RBENV_VERSION=3.1.0`
+
+### bundler
+
+We use [Bundler](https://bundler.io) to manage installing dependencies for our project. After verifying you have the correct Ruby version installed, you can setup Bundler and the project dependencies with the following commands:
+
+```bash
+$ gem install bundler
+$ bundle install --path vendor/bundle
+```
+
+If you run into openssl related compile problems on your Mac it could be because you've got an openssl installation that came from Homebrew. Try something like:
+
+```bash
+$ bundle config --local build.puma --with-opt-dir=/usr/local/opt/openssl
+$ bundle config --local build.eventmachine --with-opt-dir=/usr/local/opt/openssl
+```
+
+(repeat by replacing "puma" with the name of other failing gems)
+
+If you run into issues install mysql2 gem locally on your Mac try:
+
+```bash
+bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include"
+
+```
+
+### Create, migrate, seed database
+
+```bash
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+## Running the API
+
+Starting the Rails app is as simple as running `bundle exec rails --server` or `bundle exec rails s`. If you want to open a Rails console for the application you can do so with `bundle exec rails --console` or `bundle exec rails c`
+
+Test suite can be ran with `rails test`
+
+## API HTTP Usage (examples using cURL)
 
 Create user
 
@@ -63,10 +105,7 @@ curl -H "Authorization: $TKN" localhost:3000/api/v1/orders/7
 
 ## Requirments
 
-- Ruby 2.5+
-- Sqlite
-
-## Quirks
-
-Error install mysql2 gem on macOS fix
-https://stackoverflow.com/questions/30834421/error-when-trying-to-install-app-with-mysql2-gem
+- rbenv
+- ruby 3.1.0
+- sqlite
+- mysql (or, mariadb)

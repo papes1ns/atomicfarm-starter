@@ -13,20 +13,22 @@ export const Home: React.FC = () => {
 
   return (
     <React.Fragment>
-      <Header title="Home" />
+      <Header title={"Manual measurements"} />
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          {/* Replace with your content */}
           <div className="px-4 py-6 sm:px-0">
             <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 p-4 text-center text-gray-400">
               Hello friends :)
             </div>
           </div>
-          <div>here's some product data from a rails api</div>
-          {products.map((p, i) => (
-            <pre key={i}>{JSON.stringify(p, null, 2)}</pre>
-          ))}
-          {/* /End replace */}
+          <div>
+            Rails API data following{" "}
+            <a className="underline" href="https://jsonapi.org/">
+              JSON:API spec
+            </a>
+            :
+          </div>
+          <pre>{JSON.stringify(products, null, 2)}</pre>
         </div>
       </main>
     </React.Fragment>
@@ -36,5 +38,5 @@ export const Home: React.FC = () => {
 async function fetchProducts() {
   const resp = await fetch("/api/v1/products");
   const json = await resp.json();
-  return json.data;
+  return json;
 }

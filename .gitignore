@@ -12,6 +12,7 @@ pids
 *.local
 *node_modules
 *.bundle
+**bundle
 
 # JS build directories
 *dist

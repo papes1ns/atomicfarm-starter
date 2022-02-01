@@ -12,15 +12,9 @@ export const App: React.FC = () => {
     <Router>
       <Nav />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route>
-          <NotFound />
-        </Route>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );
