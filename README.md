@@ -59,7 +59,7 @@ Redis is used as an array the worker service retrieve jobs from. Can also be use
 
 ## First iteration spec
 
-Nate's ideas for the manual measurments app v1 spec is encapsulated in the google doc shared below.
+Nate's ideas for the manual measurements app v1 spec is encapsulated in the google doc shared below.
 
 ```
 https://docs.google.com/document/d/1gXjPs0tsftRf5TJNL9S51cbSXqFxn-0C0a6X7tvfQBs/edit?usp=sharing
