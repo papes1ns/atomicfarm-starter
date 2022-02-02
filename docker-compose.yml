@@ -36,7 +36,7 @@ services:
       REDIS_URL: redis://redis:6379/0
       SIDEKIQ_REDIS_URL: redis://redis:6379/1
     volumes:
-      - ./backend:/app
+      - backend:${PROJECT_ROOT}/backend:/app
     depends_on:
       - db
       - redis
@@ -48,7 +48,7 @@ services:
       - db
       - redis
     volumes:
-      - ./backend:/app
+      - backend:${PROJECT_ROOT}/backend:/app
     environment:
       MYSQL_CONNECTION: ${MYSQL_CONNECTION}
       REDIS_URL: redis://redis:6379/0
@@ -63,10 +63,12 @@ services:
       - backend
     command: yarn dev
     volumes:
-      - ./frontend/:/app
+      - frontend:${PROJECT_ROOT}/frontend:/app
       - node_modules:/app/node_modules
     ports:
       - "4000:4000"
 volumes:
+  backend:
+  frontend:
   node_modules:
   mysql_data:
