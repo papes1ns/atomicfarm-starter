@@ -35,14 +35,14 @@ Here're the steps to get your development environment up and running.
 
 ## Technologies
 
-- Docker compose - development service orchestration
-- Mysql - relational database
-- Nginx proxy - reverse proxy to link services together
-- Ruby on Rails 6 (API only) - backend MVC framework
-- Sidekiq - background job processing
-- React - frontend framework
-- Vite - fast, simple frontend tooling
-- Tailwindcss - css framework
+- docker - service orchestration, containerization
+- mysql - relational database
+- nginx - reverse proxy to link services together, for dev env only
+- rails - batteries-include backend MVC framework
+- sidekiq - background job processing
+- react - frontend framework
+- vite - fast, simple frontend tooling
+- tailwindcss - css framework
 
 ## Architecture
 
