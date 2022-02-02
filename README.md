@@ -46,7 +46,7 @@ Here're the steps to get your development environment up and running.
 
 ## Architecture
 
-The application can be built using `docker-compose up --build`.
+The application can be built using `docker compose up --build`.
 
 There are several interlinking services orchestrated in individual containers: `db` (the mysql instance), `backend` (the Rails api), `frontend` (the React application) and finally the `nginx` proxy container which pulls everything together.
 
