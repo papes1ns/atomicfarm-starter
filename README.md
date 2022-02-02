@@ -53,7 +53,7 @@ Redis is used as an array the worker service retrieve jobs from. Can also be use
 
 - Given my (Nate's) experience, Rails proves to be the best for large scale web apps and is the most agile framework. I've used Django, Flask, Sinatra, ASP.net and Rails is the clear winner by far for developer experience and scalability
 - Atomicobject has great examples of super well built Rails projects in our github that we can refer to
-- Rails includes all the batteries (models, validation, controllers, routing, serializers, async jobs, db migrations, logging, test tooling) and everything is **well-tested together**, framework wise. Whereas with JS we would piece together a bunch of libs that aren’t tested together and managing the dependencies and versions is not great
+- Rails includes all the batteries (models, validation, controllers, routing, serializers, async jobs, db migrations, logging, file uploads, test tooling) and everything is **well-tested together**, framework wise. Whereas with JS we would piece together a bunch of libs that aren’t tested together and managing the dependencies and versions is not great
 - Rails has proved the test of time, it’s been relevant for many years so therefore I think it will continue to be relevant for years to come. E.g. the JS ecosystem changes very quickly and breaking changes occur more often (from my experience)
 - Ruby is the most elegant programming language I’ve ever worked in.. but of course that is subjective :)
 

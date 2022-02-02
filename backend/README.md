@@ -10,7 +10,7 @@ The purpose of this application is not only to teach you how to build an API wit
 - **Test your end-points with unit and functional tests**
 - Set up authentication with JSON Web Tokens (JWT)
 
-## Local environment Setup
+## Local environment setup
 
 ### rbenv
 
@@ -18,11 +18,11 @@ We use [rbenv](https://github.com/rbenv/rbenv) to manage the Ruby version used o
 
 ```bash
 $ brew install rbenv
-$ rbenv install 3.1.0     // <-- Or whatever Ruby version is specified in the '.ruby-version' file
-$ ruby --version          // <-- This should match the version in the '.ruby-version' file
+$ rbenv install 3.1.0     # or whatever Ruby version is specified in the '.ruby-version' file
+$ ruby --version          # this should match the version in the '.ruby-version' file
 ```
 
-Ruby version should also matched the version source with direnv, e.g. `RBENV_VERSION=3.1.0`
+Ruby version should also match the version sourced with direnv, e.g. `RBENV_VERSION=3.1.0`
 
 ### bundler
 
@@ -57,13 +57,13 @@ rails db:migrate
 rails db:seed
 ```
 
-## Running the API
+## Development
 
 Starting the Rails app is as simple as running `bundle exec rails --server` or `bundle exec rails s`. If you want to open a Rails console for the application you can do so with `bundle exec rails --console` or `bundle exec rails c`
 
 Test suite can be ran with `rails test`
 
-## API HTTP Usage (examples using cURL)
+## HTTP API examples
 
 Create user
 
@@ -103,7 +103,7 @@ curl -H "Authorization: $TKN" localhost:3000/api/v1/orders
 curl -H "Authorization: $TKN" localhost:3000/api/v1/orders/7
 ```
 
-## Requirments
+## Requirements
 
 - rbenv
 - ruby 3.1.0

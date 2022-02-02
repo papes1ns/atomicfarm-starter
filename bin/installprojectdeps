@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+cd "$PROJECT_ROOT" || exit 1
+
+# Run all install commands in subshell () to retrun to $PROJECT_ROOT when done.
+
+# Install frontend JS deps
+echo "Installing frontend JavaScript dependencies"
+(
+  cd frontend \
+  && nodenv install \
+  && npm install yarn --no-save --no-package-lock --force \
+  && yarn install --modules-folder node_modules \
+)
+echo "  Finished installing frontend dependencies"
+
+# Install backend Ruby deps
+echo "Installing backend Ruby dependencies"
+(
+  cd backend \
+  && rbenv install \
+  && gem install bundler \
+  && bundle install --path vendor/bundle \
+)
+echo "  Finished installing backend dependencies"
+
+cat <<EOF
+
+Success!
+
+  Backend programming environment:
+
+    * Ruby version $(ruby -v | awk '{print $2;}') $(which ruby)
+      - version should == $RBENV_VERSION
+
+    * Bundler version $(bundle -v | awk '{print $3;}') $(which bundle)
+      
+  Frontend programming environment:
+
+    * Node version $(node -v) $(which node)
+      - version should == $NODENV_VERSION
+
+    * Yarn version $(yarn -v) $(which yarn)
+
+
+EOF
+
+

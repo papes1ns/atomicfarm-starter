@@ -14,10 +14,10 @@ RUN echo "gem: --no-rdoc --no-ri" > /etc/gemrc
 
 USER app
 
-COPY --chown=app:app Gemfile* ./
+COPY --chown=app:app Gemfile* /app
 RUN bundle install --jobs 20 --retry 5
 
-COPY --chown=app:app . .
+COPY --chown=app:app . /app
 
 EXPOSE 3000
 ENTRYPOINT ["./entrypoint.sh"]
