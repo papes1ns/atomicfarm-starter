@@ -1,48 +1,32 @@
 #!/usr/bin/env bash
 
-cd "$PROJECT_ROOT" || exit 1
+# TODO This script currently only works for macOS, should be made to work for
+# windows and linux too.
 
-# Run all install commands in subshell () to retrun to $PROJECT_ROOT when done.
+# Install homebrew if it isn’t already installed
+# See https://brew.sh for details
+echo "Installing Homebrew"
+command -v brew >/dev/null ||
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo "  Finished installing Homebrew."
 
-# Install frontend JS deps
-echo "Installing frontend JavaScript dependencies"
-(
-  cd frontend \
-  && nodenv install \
-  && npm install yarn --no-save --no-package-lock --force \
-  && yarn install --modules-folder node_modules \
-)
-echo "  Finished installing frontend dependencies"
+# Install homebrew packages
+echo "Installing packages from Homebrew"
+brew install nodenv rbenv direnv
+echo "  Finished installing packages from Homebrew."
+# nodenv is a tool for managing different versions of node on different projects
+# rbenv is a tool for managing different versions of ruby on different projects
+# direnv is a tool for running code when you enter and exit a directoryat.
 
-# Install backend Ruby deps
-echo "Installing backend Ruby dependencies"
-(
-  cd backend \
-  && rbenv install \
-  && gem install bundler \
-  && bundle install --path vendor/bundle \
-)
-echo "  Finished installing backend dependencies"
+# Update your shell configuration
 
-cat <<EOF
+# Many libraries will ask you to update your shell config. If you set up direnv.
+# Rather than clutter up your shell config, we use direnv so that relevant
+# updates to your $PATH and other eval steps can be isolated to just this
+# project directory. But, in order to do that, direnv needs to modify your shell
+# config once.
 
-Success!
-
-  Backend programming environment:
-
-    * Ruby version $(ruby -v | awk '{print $2;}') $(which ruby)
-      - version should == $RBENV_VERSION
-
-    * Bundler version $(bundle -v | awk '{print $3;}') $(which bundle)
-      
-  Frontend programming environment:
-
-    * Node version $(node -v) $(which node)
-      - version should == $NODENV_VERSION
-
-    * Yarn version $(yarn -v) $(which yarn)
-
-
-EOF
-
-
+echo "Updating your shell configuration…"
+# shellcheck disable=2016
+echo 'eval "$(direnv hook zsh)"' >>~/.zshrc
+echo "  Finished updating your shell configuration."
