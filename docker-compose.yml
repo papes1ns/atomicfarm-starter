@@ -28,19 +28,7 @@ services:
       NGINX_PORT: 8080
     ports:
       - 8080:8080
-  worker:
-    build: backend
-    command: bundle exec sidekiq
-    environment:
-      MYSQL_CONNECTION: ${MYSQL_CONNECTION}
-      REDIS_URL: redis://redis:6379/0
-      SIDEKIQ_REDIS_URL: redis://redis:6379/1
-    volumes:
-      - ./backend:/app
-    depends_on:
-      - db
-      - redis
-  backend:
+  backend: &backend_base
     stdin_open: true
     tty: true
     build: backend
@@ -51,12 +39,15 @@ services:
       - ./backend:/app
     environment:
       MYSQL_CONNECTION: ${MYSQL_CONNECTION}
-      REDIS_URL: redis://redis:6379/0
-      SIDEKIQ_REDIS_URL: redis://redis:6379/1
+      REDIS_CONNECTION: ${REDIS_CONNECTION}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
     ports:
       - "3000:3000"
     command: bundle exec rails s -p 3000 -b 0.0.0.0
+  worker:
+    <<: *backend_base
+    command: bundle exec sidekiq
+    ports: []
   frontend:
     build: frontend
     command: yarn dev

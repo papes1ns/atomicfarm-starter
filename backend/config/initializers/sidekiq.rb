@@ -10,14 +10,13 @@ Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
   [user, password] == ["admin","admin"]
 end
 
-if !Rails.env.test?
+if not Rails.env.test?
+  # server
   Sidekiq.configure_server do |config|
-    config.redis = { url: ENV.fetch('SIDEKIQ_REDIS_URL') {"localhost:6379"} }
+    config.redis = { url: ENV['REDIS_CONNECTION'] }
   end
-end
-
-if !Rails.env.test?
+  # client
   Sidekiq.configure_client do |config|
-    config.redis = { url: ENV.fetch('SIDEKIQ_REDIS_URL') {"localhost:6379"} }
+    config.redis = { url: ENV['REDIS_CONNECTION'] }
   end
 end
