@@ -10,7 +10,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 COPY . /app
 
-EXPOSE 3000
+EXPOSE 4000
 
 ENTRYPOINT ["./entrypoint.sh"]
 
