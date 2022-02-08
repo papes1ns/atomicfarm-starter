@@ -1,4 +1,4 @@
-FROM node:17.1-alpine
+FROM node:16.13-alpine
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 COPY . /app
 
-EXPOSE 3000
+EXPOSE 4000
 
 ENTRYPOINT ["./entrypoint.sh"]
 

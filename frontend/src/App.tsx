@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import {Nav} from "./components/Nav";
 
@@ -9,13 +9,13 @@ import {NotFound} from "./views/NotFound";
 
 export const App: React.FC = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Nav />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route component={NotFound} />
-      </Switch>
-    </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
