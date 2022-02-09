@@ -22,4 +22,4 @@ COPY --chown=app:app . /app
 EXPOSE 3000
 ENTRYPOINT ["./entrypoint.sh"]
 
-CMD bundle exec rails s -p 3000 -b 0.0.0.0
+CMD RAILS_ENV=production bundle exec rails s -p 3000 -b 0.0.0.0
