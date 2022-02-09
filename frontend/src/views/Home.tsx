@@ -36,7 +36,9 @@ export const Home: React.FC = () => {
 };
 
 async function fetchProducts() {
-  const resp = await fetch("/api/v1/products");
+  const url = `/api/v1/products`;
+  console.log(`fetchProducts URL = ${url}`);
+  const resp = await fetch(url);
   const json = await resp.json();
   return json;
 }
