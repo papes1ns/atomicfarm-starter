@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+tag_base="$PROJECT_NAME-frontend"
+version="$(versioninfo)"
+deploy_tag="$tag_base:deploy"
+port="8082"
+
+echo "Running $deploy_tag container for version $version on $port "
+
+docker run -p $port:80 \
+           -e "VERSION=$version" \
+           $deploy_tag

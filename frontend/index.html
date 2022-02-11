@@ -12,5 +12,10 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="text/javascript">
+      window.globals = {};
+      // following line get replaced at runtime
+      window.globals;
+    </script>
   </body>
 </html>
