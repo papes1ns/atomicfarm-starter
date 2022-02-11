@@ -9,6 +9,8 @@ export const Nav: React.FC = () => {
   const links = [
     {text: "Home", to: "/"},
     {text: "About", to: "/about"},
+    {text: "Team", to: "/team"},
+    {text: "Measurements", to: "/measurements"},
   ];
 
   const activeClass = "text-white bg-gray-900";
