@@ -8,13 +8,13 @@ Here're the steps to get your development environment up and running.
 
 1. Highly recommend using [vscode](https://code.visualstudio.com/) and installing the recommended extensions for the best development experience
 1. Install project dependencies: [direnv](https://direnv.net/), [nodenv](https://github.com/nodenv/nodenv) and [rbenv](https://github.com/rbenv/rbenv). If you are on macOS you can install these via homebrew by running the `installprojectdeps` command
-1. Run `direnv allow` after direnv is installed and each time you make a change to `.envrc`. Direnv will automatically source the `.envrc` file when you `cd` to this project. This is crucial for the docker compose file to read the environment variables
+1. Run `direnv allow` after direnv is installed and each time you make a change to `.envrc`. Direnv will automatically source the `.envrc` file when you `cd` to this project. This is crucial for the docker-compose file to read the environment variables
 1. Install app dependencies for node and ruby. These can be installed locally on your machine by running `installappdeps`
 1. Install [docker desktop](https://docs.docker.com/desktop/)
 
 ## Development
 
-1. Run `docker compose up --build`
+1. Run `docker-compose up --build`
 1. Run `dbsetup` to run migrations and seed the database
 
 ## Testing

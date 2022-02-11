@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -eu  # do not proceed on error
-
-docker compose run -e RAILS_ENV=test backend /bin/bash -c "
+docker-compose run -e RAILS_ENV=test backend /bin/bash -c "
 rails test
 "
