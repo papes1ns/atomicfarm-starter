@@ -12,4 +12,8 @@ export default defineConfig({
     port: 4000,
     host: "0.0.0.0",
   },
+  define: {
+    API_BASE_URL: JSON.stringify(process.env.API_BASE_URL),
+    VERSION: JSON.stringify(process.env.VERSION),
+  },
 });

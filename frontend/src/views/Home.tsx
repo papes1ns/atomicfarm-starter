@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {apiBaseUrl} from "../App";
 import {Header} from "../components/Header";
 
 export const Home: React.FC = () => {
@@ -16,11 +17,6 @@ export const Home: React.FC = () => {
       <Header title={"Manual measurements"} />
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          <div className="px-4 py-6 sm:px-0">
-            <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 p-4 text-center text-gray-400">
-              Hello :)
-            </div>
-          </div>
           <div>
             Rails API data following{" "}
             <a className="underline" href="https://jsonapi.org/">
@@ -36,7 +32,7 @@ export const Home: React.FC = () => {
 };
 
 async function fetchProducts() {
-  const url = `/api/v1/products`;
+  const url = `${apiBaseUrl}/api/v1/products`;
   console.log(`fetchProducts URL = ${url}`);
   const resp = await fetch(url);
   const json = await resp.json();

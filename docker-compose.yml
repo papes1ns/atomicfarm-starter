@@ -53,12 +53,13 @@ services:
   frontend:
     build:
       context: frontend
-      target: build
+      target: base
     command: yarn dev
     links:
       - backend
     environment:
       NODE_ENV: development
+      VERSION: ${VERSION}
     volumes:
       - ./frontend:/app
       - node_modules:/app/node_modules
@@ -70,6 +71,7 @@ services:
       target: production
     environment:
       VERSION: ${VERSION}
+      API_BASE_URL: "http://localhost:3000"
     ports:
       - "8081:80"
 volumes:
