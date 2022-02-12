@@ -10,11 +10,11 @@ We use [nodenv](https://github.com/nodenv/nodenv) to manage the Node version use
 
 ```bash
 $ brew install nodenv
-$ nodenv install 17.1.0     # or whatever Node version is specified in the '.node-version' file
+$ nodenv install 16.13.0     # or whatever Node version is specified in the '.node-version' file
 $ node --version            # this should match the version in the '.node-version' file
 ```
 
-Node version should also match the version sourced with direnv, e.g. `NODENV_VERSION=17.1.0`
+Node version should also match the version sourced with direnv, e.g. `NODENV_VERSION=16.13.0`
 
 ### yarn
 
@@ -40,4 +40,4 @@ yarn build
 ## Requirements
 
 - nodenv
-- node 17.1.0
+- node 16.13.0
