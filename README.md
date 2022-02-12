@@ -14,8 +14,9 @@ Here're the steps to get your development environment up and running.
 
 ## Development
 
-1. Run `docker-compose up --build`
-1. Run `dbsetup` to run migrations and seed the database
+1. Run `docker-compose up --build`. This one command will spin up all the services required to do development work.
+1. Run `dbsetup` to run migrations and seed the relational database.
+1. Run `runyarn` each time you add a new dependency to `package.json` file. Also, if you notice your frontend container is failing to start, it's likely because the node_modules volume is out of sync with `package.json`. The `runyarn` command will get them back in sync, and the frontend should then be able to successfully start.
 
 ## Testing
 
@@ -31,7 +32,8 @@ Here're the steps to get your development environment up and running.
 
 - `testapi` - runs the API integration and unit tests inside docker container
 - `dbsetup` - drops db, creates db, runs migrations and seeds the rails db for development inside a docker container
-- `dexec` - short-hand command to get a shell in a running docker container
+- `dexec` - shorthand command to get a shell in a running docker container
+- `runyarn` - synchronizes node_modules volume with package.json
 
 ## Technologies
 
