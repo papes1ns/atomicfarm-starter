@@ -24,6 +24,9 @@ echo "Installing backend Ruby dependencies"
 )
 echo "  Finished installing backend dependencies"
 
+echo "Reloading .envrc"
+direnv reload
+
 cat <<EOF
 
 Success!

@@ -7,7 +7,13 @@ import {NotFound} from "./views/NotFound";
 import {Team} from "./views/Team";
 import {Measurements} from "./views/Measurements";
 
-console.log("vite env metadata", import.meta.env);
+// global variables that come from the environment variables that were
+// passed into the docker container on start up.
+export const apiBaseUrl = window.globals.API_BASE_URL || API_BASE_URL || "";
+export const versionInfo = window.globals.VERSION || VERSION || "";
+console.info("vite env metadata", import.meta.env);
+console.info({apiBaseUrl});
+console.info({versionInfo});
 
 export const App: React.FC = () => {
   return (

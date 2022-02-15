@@ -3,7 +3,7 @@
 echo "setting up db for mysql instance running at"
 echo "  $MYSQL_CONNECTION"
 
-docker compose run -e MYSQL_CONNECTION=$MYSQL_CONNECTION -e RAILS_ENV=development backend /bin/sh -c "
+docker-compose run -e MYSQL_CONNECTION=$MYSQL_CONNECTION -e RAILS_ENV=development backend /bin/sh -c "
 rails db:drop
 rails db:create
 rails db:migrate

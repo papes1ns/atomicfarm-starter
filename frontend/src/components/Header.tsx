@@ -1,4 +1,5 @@
 import React from "react";
+import {versionInfo} from "../App";
 
 interface Props {
   title: string;

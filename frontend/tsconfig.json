@@ -16,6 +16,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "typeRoots": ["./node_modules/@types", "./typings", "vite/client"]
+    "typeRoots": ["./node_modules/@types", "./typings"]
   }
 }

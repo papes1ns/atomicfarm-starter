@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+frontend_dir="$PROJECT_ROOT/frontend"
+tag_base="$PROJECT_NAME-frontend"
+version="$(versioninfo)"
+deploy_tag="$tag_base:deploy"
+
+echo "Version is $version"
+
+echo "Building $deploy_tag container for version $version"
+
+docker build --target production \
+             -f $frontend_dir/Dockerfile \
+             -t "$tag_base:deploy" \
+             -t "$tag_base:$version" \
+             $frontend_dir 
