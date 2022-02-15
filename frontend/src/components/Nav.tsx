@@ -13,20 +13,22 @@ export const Nav: React.FC = () => {
     {text: "Measurements", to: "/measurements"},
   ];
 
-  const activeClass = "text-white bg-gray-900";
-  const inactiveClass = "text-gray-300 hover:text-white hover:bg-gray-700";
+  const activeClass = "text-white bg-uf-green";
+  const inactiveClass =
+    "text-gray-300 hover:text-white hover:bg-uf-light-green";
 
   return (
-    <nav className="bg-gray-800">
+    <nav className="bg-uf-dark-green">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex-row flex justify-center items-center">
               <img
-                className="h-8 w-8"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                className="h-8 w-10"
+                src={"../../assets/logo/UF_Plant_Logo.png"}
                 alt="Workflow logo"
               />
+              <div className={"text-white ml-2 font-bold"}>Combine</div>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
@@ -48,7 +50,7 @@ export const Nav: React.FC = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
-              <button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+              {/* <button className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                 <span className="sr-only">View notifications</span>
                 <svg
                   className="h-6 w-6"
@@ -65,11 +67,11 @@ export const Nav: React.FC = () => {
                     d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                   />
                 </svg>
-              </button>
+              </button> */}
 
               {/* Profile dropdown */}
               <div className="ml-3 relative">
-                <div>
+                {/* <div>
                   <button
                     className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                     id="user-menu"
@@ -84,7 +86,7 @@ export const Nav: React.FC = () => {
                       alt=""
                     />
                   </button>
-                </div>
+                </div> */}
                 {/*  
                 Profile dropdown panel, show/hide based on dropdown state.
 
