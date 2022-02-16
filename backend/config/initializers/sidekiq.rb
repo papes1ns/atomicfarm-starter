@@ -1,6 +1,6 @@
 require 'sidekiq'
 require 'sidekiq/web'
-# require 'sidekiq-scheduler/web'
+require 'sidekiq-scheduler/web'
 # require 'sidekiq/enqueuer'
 
 Sidekiq::Web.use ActionDispatch::Cookies
