@@ -1,4 +1,4 @@
-# atomicfarm
+# Combine
 
 Web application for manual measurements at UpwardFarms.
 

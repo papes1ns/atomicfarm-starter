@@ -1,14 +1,6 @@
-# Marketplace API example
+# Combine backend
 
-This repository contains application example build into the [API on Rails 6](https://github.com/madeindjs/api_on_rails) book.
-
-This final application will scratch the surface of being a market place where users will be able to place orders, upload products and more. There are plenty of options out there to set up an online store, such as [Shopify](http://shopify.com), [Spree](http://spreecommerce.com/) or [Magento](http://magento.com).
-
-The purpose of this application is not only to teach you how to build an API with Rails but rather to teach you how to build an _evolutive_ and _maintainable_ API with Rails. That is, improve your current knowledge with Rails. On this journey, you will learn to:
-
-- Building JSON responses
-- **Test your end-points with unit and functional tests**
-- Set up authentication with JSON Web Tokens (JWT)
+Rails backend for UpwardFarm's manual measurement web app.
 
 ## Local environment setup
 
@@ -42,7 +34,7 @@ $ bundle config --local build.eventmachine --with-opt-dir=/usr/local/opt/openssl
 
 (repeat by replacing "puma" with the name of other failing gems)
 
-If you run into issues install mysql2 gem locally on your Mac try:
+If you run into issues installing mysql2 gem locally on macOS try:
 
 ```bash
 bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include"

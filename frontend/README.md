@@ -1,6 +1,6 @@
-# Atomicfarm frontend example
+# Combine frontend
 
-Frontend for UpwardFarms manual measurement web app.
+React frontend for UpwardFarm's manual measurement web app.
 
 ## Local environment setup
 
